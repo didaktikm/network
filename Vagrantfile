@@ -15,7 +15,7 @@ MACHINES = {
         :box_name => "centos/7",
         :net => [
                    {ip: '192.168.255.2', adapter: 2, netmask: "255.255.255.252", virtualbox__intnet: "router-net"},
-                   {ip: '192.168.0.1', adapter: 3, netmask: "255.255.255.240", virtualbox__intnet: "dir-net"},
+                   {ip: '192.168.0.1', adapter: 3, netmask: "255.255.255.240", virtualbox__intnet: "central-net"},
                    {ip: '192.168.0.33', adapter: 4, netmask: "255.255.255.240", virtualbox__intnet: "hw-net"},
                    {ip: '192.168.0.65', adapter: 5, netmask: "255.255.255.192", virtualbox__intnet: "mgt-net"},
                 ]
@@ -23,7 +23,7 @@ MACHINES = {
   :centralServer => {
         :box_name => "centos/7",
         :net => [
-                   {ip: '192.168.0.2', adapter: 2, netmask: "255.255.255.240", virtualbox__intnet: "dir-net"},
+                   {ip: '192.168.0.2', adapter: 2, netmask: "255.255.255.240", virtualbox__intnet: "central-net"},
                    {adapter: 3, auto_config: false, virtualbox__intnet: true},
                    {adapter: 4, auto_config: false, virtualbox__intnet: true},
                 ]
@@ -31,16 +31,17 @@ MACHINES = {
   :office1Router => {
     :box_name => "centos/7",
     :net => [
-               {ip: '192.168.2.1', adapter: 3, netmask: "255.255.255.128", virtualbox__intnet: "dev1-net"},
-               {ip: '192.168.2.65', adapter: 4, netmask: "255.255.255.192", virtualbox__intnet: "testservers1-net"},
-               {ip: '192.168.2.129', adapter: 5, netmask: "255.255.255.192", virtualbox__intnet: "managers1-net"},
-               {ip: '192.168.2.193', adapter: 6, netmask: "255.255.255.192", virtualbox__intnet: "hardware1-net"},
+               {ip: '192.168.0.3', adapter: 3, netmask: "255.255.255.128", virtualbox__intnet: "central-net"},
+               {ip: '192.168.2.1', adapter: 4, netmask: "255.255.255.128", virtualbox__intnet: "local1-net"},
+               {ip: '192.168.2.65', adapter: 5, netmask: "255.255.255.192", virtualbox__intnet: "testservers1-net"},
+               {ip: '192.168.2.129', adapter: 6, netmask: "255.255.255.192", virtualbox__intnet: "managers1-net"},
+               {ip: '192.168.2.193', adapter: 7, netmask: "255.255.255.192", virtualbox__intnet: "hardware1-net"},
             ]
   },
   :office1Server => {
     :box_name => "centos/7",
     :net => [
-               {ip: '192.168.2.2', adapter: 2, netmask: "255.255.255.128", virtualbox__intnet: "dev1-net"},
+               {ip: '192.168.2.2', adapter: 2, netmask: "255.255.255.128", virtualbox__intnet: "local1-net"},
                {adapter: 3, auto_config: false, virtualbox__intnet: true},
                {adapter: 4, auto_config: false, virtualbox__intnet: true},
             ]
@@ -48,15 +49,16 @@ MACHINES = {
 :office2Router => {
     :box_name => "centos/7",
     :net => [
-              {ip: '192.168.1.1', adapter: 3, netmask: "255.255.255.128", virtualbox__intnet: "dev2-net"},
-              {ip: '192.168.1.129', adapter: 4, netmask: "255.255.255.192", virtualbox__intnet: "testservers2-net"},
-              {ip: '192.168.1.193', adapter: 5, netmask: "255.255.255.192", virtualbox__intnet: "hardware2-net"},
+              {ip: '192.168.0.4', adapter: 3, netmask: "255.255.255.128", virtualbox__intnet: "central-net"},
+              {ip: '192.168.1.1', adapter: 4, netmask: "255.255.255.128", virtualbox__intnet: "local2-net"},
+              {ip: '192.168.1.129', adapter: 5, netmask: "255.255.255.192", virtualbox__intnet: "testservers2-net"},
+              {ip: '192.168.1.193', adapter: 6, netmask: "255.255.255.192", virtualbox__intnet: "hardware2-net"},
             ]
   }, 
   :office2Server => {
     :box_name => "centos/7",
     :net => [
-               {ip: '192.168.1.2', adapter: 2, netmask: "255.255.255.128", virtualbox__intnet: "dev2-net"},
+               {ip: '192.168.1.2', adapter: 2, netmask: "255.255.255.128", virtualbox__intnet: "local2-net"},
                {adapter: 3, auto_config: false, virtualbox__intnet: true},
                {adapter: 4, auto_config: false, virtualbox__intnet: true},
             ]
